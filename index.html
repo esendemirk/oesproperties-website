@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>OES Properties LLC | New Jersey Real Estate Development & New Construction</title>
+    <meta name="description" content="Premium residential real estate development company in New Jersey specializing in new construction, custom homes, and property development. Licensed NJ Home Builder #051634.">
+    <meta name="keywords" content="New Jersey real estate development, NJ new construction, custom homes New Jersey, residential development, home builder NJ, property development">
+    <meta name="author" content="OES Properties LLC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://oesproperties.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oesproperties.com/">
+    <meta property="og:title" content="OES Properties LLC | New Jersey Real Estate Development">
+    <meta property="og:description" content="Premium residential development specializing in new construction throughout New Jersey.">
+    <meta property="og:site_name" content="OES Properties LLC">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://oesproperties.com/">
+    <meta name="twitter:title" content="OES Properties LLC | New Jersey Real Estate Development">
+    <meta name="twitter:description" content="Premium residential development specializing in new construction throughout New Jersey.">
+    
+    <!-- Contact Information -->
+    <meta name="contact" content="oesproperties@gmail.com">
+    <meta name="phone" content="+1-201-970-3846">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-NJ">
+    <meta name="geo.placename" content="New Jersey">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --primary-slate: #1e293b;
+            --accent-blue: #3b82f6;
+            --accent-blue-light: #60a5fa;
+            --accent-blue-dark: #2563eb;
+            --text-dark: #0f172a;
+            --bg-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+        }
+
+        .landing {
+            height: 100vh;
+            height: 100dvh; /* Dynamic viewport height for mobile browsers */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
+        }
+
+        .landing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%233b82f6" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+            animation: drift 60s linear infinite;
+        }
+
+        @keyframes drift {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--accent-blue);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .description {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--primary-slate);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3.5rem;
+            background: var(--accent-blue);
+            color: var(--bg-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--primary-slate);
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        .contact-info a {
+            color: var(--primary-slate);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-blue);
+        }
+
+        .contact-info span a:hover {
+            color: var(--accent-blue) !important;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent-blue);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            h1 {
+                font-size: clamp(1.75rem, 8vw, 2.5rem);
+                margin-bottom: 0.75rem;
+            }
+
+            .tagline {
+                font-size: clamp(0.9rem, 3vw, 1.1rem);
+                margin-bottom: 1.25rem;
+            }
+
+            .divider {
+                width: 40px;
+                height: 2px;
+                margin: 0 auto 1.25rem;
+            }
+
+            .description {
+                font-size: clamp(0.85rem, 2.5vw, 1rem);
+                margin: 0 auto 1.5rem;
+                line-height: 1.6;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-info {
+                font-size: 0.75rem;
+                line-height: 1.5;
+            }
+
+            .contact-info div {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .contact-info span {
+                font-size: 0.65rem !important;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 0.85rem;
+            }
+
+            .description {
+                font-size: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.75rem;
+                font-size: 0.8rem;
+            }
+
+            .contact-info {
+                font-size: 0.7rem;
+            }
+
+            .contact-info span {
+                font-size: 0.6rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <div class="content">
+            <h1>OES Properties LLC</h1>
+            <p class="tagline">New Jersey Real Estate Development</p>
+            <div class="divider"></div>
+            <p class="description">Premium residential development specializing in new construction throughout New Jersey.</p>
+            <a href="projects.html" class="cta-button">View Our Portfolio</a>
+            <div class="contact-info">
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; margin-bottom: 0.25rem;">Okan Esendemir</div>
+                    <a href="tel:+12019703846" style="display: block; margin-bottom: 0.25rem;">(201) 970-3846</a>
+                    <a href="mailto:oesproperties@gmail.com">oesproperties@gmail.com</a>
+                </div>
+                <span style="margin-top: 0.5rem; display: inline-block; font-size: 0.85rem;">New Home Builder Registration #051634 • NJ <a href="https://newjersey.mylicense.com/verification/Details.aspx?result=3cfaa7e0-a505-4a7b-8588-d204af32d2bd" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s ease;">HIC #13VH10790500</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "OES Properties LLC",
+      "description": "Premium residential development specializing in new construction throughout New Jersey",
+      "url": "https://oesproperties.com",
+      "logo": "https://oesproperties.com/logo.png",
+      "telephone": "+1-201-970-3846",
+      "email": "oesproperties@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "NJ",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "New Jersey"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Okan Esendemir"
+      },
+      "sameAs": []
+    }
+    </script>
+</body>
+</html>

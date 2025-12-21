@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Our Projects | OES Properties LLC - New Jersey Real Estate Portfolio</title>
+    <meta name="description" content="View our portfolio of completed residential development projects across New Jersey. Custom homes, new construction, and luxury properties from OES Properties LLC.">
+    <meta name="keywords" content="New Jersey real estate portfolio, completed projects NJ, custom homes portfolio, new construction projects, luxury homes NJ">
+    <meta name="author" content="OES Properties LLC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://oesproperties.com/projects.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oesproperties.com/projects.html">
+    <meta property="og:title" content="Our Projects | OES Properties LLC">
+    <meta property="og:description" content="View our portfolio of completed residential development projects across New Jersey.">
+    <meta property="og:site_name" content="OES Properties LLC">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://oesproperties.com/projects.html">
+    <meta name="twitter:title" content="Our Projects | OES Properties LLC">
+    <meta name="twitter:description" content="View our portfolio of completed residential development projects across New Jersey.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --primary-slate: #1e293b;
+            --accent-blue: #3b82f6;
+            --accent-blue-light: #60a5fa;
+            --accent-blue-dark: #2563eb;
+            --text-dark: #0f172a;
+            --text-medium: #64748b;
+            --text-light: #94a3b8;
+            --bg-cream: #ffffff;
+            --bg-white: #ffffff;
+            --bg-gray: #f8fafc;
+            --bg-light-blue: #f0f9ff;
+            --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Back to Home Link */
+        .back-home {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            z-index: 1000;
+            transition: all 0.2s ease;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-white);
+            border: 1px solid #e5e5e5;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .back-home:hover {
+            background: var(--bg-light-blue);
+            border-color: var(--accent-blue);
+            transform: translateX(-2px);
+        }
+
+        .back-arrow {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+        }
+
+        .back-label {
+            display: none;
+        }
+
+        .back-company {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 3rem 3rem;
+            background: linear-gradient(135deg, var(--bg-light-blue) 0%, #e0f2fe 100%);
+            border-bottom: 1px solid #bfdbfe;
+        }
+
+        .page-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Property Table */
+        .property-table {
+            background: var(--bg-white);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 140px 2fr 1fr 1fr;
+            gap: 2rem;
+            padding: 1.25rem 3rem;
+            background: var(--bg-white);
+            color: var(--text-medium);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .property-row {
+            display: grid;
+            grid-template-columns: 140px 2fr 1fr 1fr;
+            gap: 2rem;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            align-items: center;
+            background: var(--bg-white);
+        }
+
+        .property-row:hover {
+            background: var(--bg-gray);
+        }
+
+        .property-row:last-child {
+            border-bottom: none;
+        }
+
+        .address {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .address-location {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            font-weight: 400;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .date {
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-sold {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-contract {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-listed {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-process {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+
+        .comments {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .property-photo {
+            width: 120px;
+            height: 90px;
+            background: var(--bg-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .property-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+        }
+
+        .property-row:hover .property-photo img {
+            transform: scale(1.03);
+        }
+
+        .property-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gray);
+            color: var(--text-light);
+            font-size: 1.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-white);
+            color: var(--text-light);
+            padding: 4rem 3rem;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .table-header,
+            .property-row {
+                grid-template-columns: 120px 2fr 1fr 1fr;
+                gap: 1.5rem;
+                padding: 1.25rem 2rem;
+            }
+
+            .property-photo {
+                width: 100px;
+                height: 75px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .back-home {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.5rem 0.9rem;
+                font-size: 0.8rem;
+                gap: 0.5rem;
+            }
+
+            .back-arrow {
+                font-size: 1rem;
+            }
+
+            .page-header {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .page-label {
+                font-size: 0.7rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .page-header p {
+                font-size: 0.85rem;
+            }
+
+            .projects {
+                padding: 0;
+            }
+
+            .table-header {
+                display: none;
+            }
+
+            .property-row {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                padding: 1.25rem 1rem;
+            }
+
+            .property-photo {
+                width: 100%;
+                height: 180px;
+                margin-bottom: 0.25rem;
+            }
+
+            .address {
+                font-size: 0.9rem;
+            }
+
+            .address-location {
+                font-size: 0.75rem;
+            }
+
+            .price {
+                font-size: 1rem;
+            }
+
+            .date {
+                font-size: 0.8rem;
+            }
+
+            .status-badge {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.65rem;
+            }
+
+            .property-row:hover {
+                transform: none;
+            }
+
+            footer {
+                padding: 2.5rem 1.5rem;
+            }
+
+            footer p {
+                font-size: 0.75rem;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home">
+        <div class="back-arrow">←</div>
+        <div class="back-text">
+            <div class="back-label">Back to</div>
+            <div class="back-company">OES Properties</div>
+        </div>
+    </a>
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-label">Portfolio</div>
+            <h1>Our Projects</h1>
+            <p>A comprehensive showcase of completed and ongoing developments across New Jersey</p>
+        </div>
+    </div>
+
+    <section class="projects">
+        <div class="property-table">
+            <div class="table-header">
+                <div>Photo</div>
+                <div>Address</div>
+                <div>Price</div>
+                <div>Date</div>
+            </div>
+            
+            <div class="property-list" id="propertyList">
+                <!-- Properties will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> OES Properties LLC. All rights reserved.</p>
+        <p style="margin-top: 0.75rem; font-size: 0.8rem;">
+            Designed + built by <a href="https://kaanesendemir.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none; font-weight: 500; transition: color 0.2s ease;">Kaan</a>
+        </p>
+    </footer>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oesproperties.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projects",
+        "item": "https://oesproperties.com/projects.html"
+      }]
+    }
+    </script>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // ===== GOOGLE SHEETS CONFIGURATION =====
+        // Your published Google Sheets CSV URL
+        const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRaNuBjf0nZcbW9urpS-JrxWTxb5__VnAYGbRdAw2-eJWiqA26Q_d86TxGmDR3wm8aZHoY7ILINmfQy/pub?output=csv';
+        
+        // For local testing, we'll use a CORS proxy
+        const CORS_PROXY = 'https://corsproxy.io/?';
+        
+        let properties = [];
+
+        // Detect if we're running locally (file://) and need CORS proxy
+        function getSheetURL() {
+            if (window.location.protocol === 'file:') {
+                console.log('Local file detected - using CORS proxy for testing');
+                return CORS_PROXY + encodeURIComponent(GOOGLE_SHEET_URL);
+            }
+            return GOOGLE_SHEET_URL;
+        }
+
+        // Parse CSV data from Google Sheets
+        function parseCSV(csv) {
+            const lines = csv.split('\n');
+            const headers = lines[0].split(',').map(h => h.trim());
+            const data = [];
+
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                
+                // Handle CSV with quoted fields
+                const values = [];
+                let currentValue = '';
+                let insideQuotes = false;
+                
+                for (let char of lines[i]) {
+                    if (char === '"') {
+                        insideQuotes = !insideQuotes;
+                    } else if (char === ',' && !insideQuotes) {
+                        values.push(currentValue.trim());
+                        currentValue = '';
+                    } else {
+                        currentValue += char;
+                    }
+                }
+                values.push(currentValue.trim());
+
+                if (values.length >= 4) {
+                    const address = values[0].replace(/"/g, '');
+                    const addressParts = address.split(' ');
+                    
+                    // Extract city and state from address
+                    let city = '';
+                    let streetAddress = '';
+                    
+                    // Find where city starts (usually after street name)
+                    const cityStartIndex = addressParts.findIndex(part => 
+                        part.toLowerCase() === 'nj' || 
+                        part.match(/^[A-Z][a-z]+$/) && addressParts.indexOf(part) > 2
+                    );
+                    
+                    if (cityStartIndex > 0) {
+                        streetAddress = addressParts.slice(0, cityStartIndex).join(' ');
+                        city = addressParts.slice(cityStartIndex).join(' ');
+                    } else {
+                        streetAddress = address;
+                        city = 'New Jersey';
+                    }
+                    
+                    // Determine status from date field
+                    let status = 'sold';
+                    const dateField = values[2].toLowerCase();
+                    if (dateField.includes('contract')) {
+                        status = 'contract';
+                    } else if (dateField.includes('listed')) {
+                        status = 'listed';
+                    } else if (dateField.includes('process')) {
+                        status = 'process';
+                    }
+
+                    // Get photo URL (5th column if it exists)
+                    let photoUrl = values[4] ? values[4].replace(/"/g, '').trim() : '';
+                    
+                    // Convert Google Drive links to direct image URLs
+                    if (photoUrl.includes('drive.google.com')) {
+                        photoUrl = convertGoogleDriveUrl(photoUrl);
+                    }
+
+                    data.push({
+                        address: streetAddress,
+                        city: city.includes('NJ') ? city : city + ', NJ',
+                        price: values[1].replace(/"/g, ''),
+                        date: values[2].replace(/"/g, ''),
+                        status: status,
+                        comments: values[3].replace(/"/g, ''),
+                        photoUrl: photoUrl
+                    });
+                }
+            }
+
+            return data;
+        }
+
+        // Convert Google Drive share links to direct image URLs
+        function convertGoogleDriveUrl(url) {
+            // Handle different Google Drive URL formats
+            // Format 1: https://drive.google.com/file/d/FILE_ID/view
+            let match = url.match(/\/file\/d\/([^\/]+)/);
+            if (match) {
+                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+            }
+            
+            // Format 2: https://drive.google.com/open?id=FILE_ID
+            match = url.match(/[?&]id=([^&]+)/);
+            if (match) {
+                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+            }
+            
+            // If already in direct format or other URL, return as-is
+            return url;
+        }
+
+        // Fetch properties from Google Sheets
+        async function loadProperties() {
+            const propertyList = document.getElementById('propertyList');
+            propertyList.innerHTML = '<div style="padding: 3rem; text-align: center; color: #7a7a7a;">Loading properties...</div>';
+
+            try {
+                const sheetURL = getSheetURL();
+                console.log('Fetching from:', sheetURL);
+                
+                const response = await fetch(sheetURL);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const csvData = await response.text();
+                console.log('CSV data received, length:', csvData.length);
+                
+                if (!csvData || csvData.length < 10) {
+                    throw new Error('CSV data is empty or too short');
+                }
+                
+                properties = parseCSV(csvData);
+                console.log('Parsed properties:', properties.length);
+                
+                if (properties.length === 0) {
+                    throw new Error('No properties parsed from CSV');
+                }
+                
+                // Render properties
+                renderProperties();
+                
+            } catch (error) {
+                console.error('Error loading properties:', error);
+                
+                let errorMessage = '<div style="padding: 3rem; text-align: center;">';
+                
+                if (window.location.protocol === 'file:') {
+                    errorMessage += `
+                        <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 1rem;">⚠️ Local File Testing</p>
+                        <p style="color: #4a4a4a; margin-bottom: 1rem;">You're viewing this from a local file (file://)</p>
+                        <p style="color: #7a7a7a; font-size: 0.9rem; line-height: 1.6;">
+                            This is normal! The page will work perfectly once deployed to Cloudflare Pages.<br><br>
+                            To test locally, you can:<br>
+                            1. Use a local web server (e.g., python -m http.server)<br>
+                            2. Or just deploy to Cloudflare Pages - it will work there!
+                        </p>
+                    `;
+                } else {
+                    errorMessage += `
+                        <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 1rem;">Unable to load properties</p>
+                        <p style="color: #7a7a7a; font-size: 0.9rem;">Error: ${error.message}</p>
+                        <p style="color: #7a7a7a; font-size: 0.85rem; margin-top: 1rem;">Sheet URL: ${GOOGLE_SHEET_URL}</p>
+                    `;
+                }
+                
+                errorMessage += '</div>';
+                propertyList.innerHTML = errorMessage;
+            }
+        }
+
+        function getStatusBadge(status) {
+            const badges = {
+                sold: '<span class="status-badge status-sold">Sold</span>',
+                contract: '<span class="status-badge status-contract">Under Contract</span>',
+                listed: '<span class="status-badge status-listed">Listed</span>',
+                process: '<span class="status-badge status-process">In Process</span>'
+            };
+            return badges[status] || '';
+        }
+
+        function renderProperties(filter = 'all') {
+            const propertyList = document.getElementById('propertyList');
+            propertyList.innerHTML = '';
+
+            // Always show all properties
+            const filtered = properties;
+
+            if (filtered.length === 0) {
+                propertyList.innerHTML = '<div style="padding: 3rem; text-align: center; color: #7a7a7a;">No properties found.</div>';
+                return;
+            }
+
+            filtered.forEach(prop => {
+                const row = document.createElement('div');
+                row.className = 'property-row';
+                
+                // Create photo HTML
+                let photoHTML = '';
+                if (prop.photoUrl) {
+                    photoHTML = `
+                        <div class="property-photo">
+                            <img src="${prop.photoUrl}" alt="${prop.address}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'property-photo-placeholder\\'>🏠</div>'">
+                        </div>
+                    `;
+                } else {
+                    photoHTML = `
+                        <div class="property-photo">
+                            <div class="property-photo-placeholder">🏠</div>
+                        </div>
+                    `;
+                }
+                
+                row.innerHTML = `
+                    ${photoHTML}
+                    <div>
+                        <div class="address">${prop.address}</div>
+                        <div class="address-location">${prop.city}</div>
+                    </div>
+                    <div class="price">${prop.price}</div>
+                    <div>
+                        ${getStatusBadge(prop.status)}
+                        <div class="date" style="margin-top: 0.5rem;">${prop.date}</div>
+                    </div>
+                `;
+                propertyList.appendChild(row);
+            });
+        }
+
+        // Load properties when page loads
+        loadProperties();
+    </script>
+</body>
+</html>
