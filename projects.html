@@ -500,36 +500,56 @@
                 values.push(currentValue.trim());
 
                 if (values.length >= 4) {
-                    const address = values[0].replace(/"/g, '');
-                    const addressParts = address.split(' ');
+                    const fullAddress = values[0].replace(/"/g, '').trim();
                     
-                    // Extract city and state from address
-                    let city = '';
+                    // Improved address parsing - split by comma if present
                     let streetAddress = '';
+                    let city = '';
                     
-                    // Find where city starts (usually after street name)
-                    const cityStartIndex = addressParts.findIndex(part => 
-                        part.toLowerCase() === 'nj' || 
-                        part.match(/^[A-Z][a-z]+$/) && addressParts.indexOf(part) > 2
-                    );
-                    
-                    if (cityStartIndex > 0) {
-                        streetAddress = addressParts.slice(0, cityStartIndex).join(' ');
-                        city = addressParts.slice(cityStartIndex).join(' ');
+                    if (fullAddress.includes(',')) {
+                        // Split by first comma
+                        const parts = fullAddress.split(',');
+                        streetAddress = parts[0].trim();
+                        // Everything after first comma is city/state
+                        city = parts.slice(1).join(',').trim();
                     } else {
-                        streetAddress = address;
-                        city = 'New Jersey';
+                        // Fallback to old method if no comma
+                        const addressParts = fullAddress.split(' ');
+                        const cityStartIndex = addressParts.findIndex(part => 
+                            part.toLowerCase() === 'nj' || 
+                            (part.match(/^[A-Z][a-z]+$/) && addressParts.indexOf(part) > 2)
+                        );
+                        
+                        if (cityStartIndex > 0) {
+                            streetAddress = addressParts.slice(0, cityStartIndex).join(' ');
+                            city = addressParts.slice(cityStartIndex).join(' ');
+                        } else {
+                            streetAddress = fullAddress;
+                            city = 'New Jersey';
+                        }
                     }
                     
-                    // Determine status from date field
+                    // Make sure city includes NJ if not already
+                    if (!city.includes('NJ') && !city.includes('New Jersey')) {
+                        city = city + ', NJ';
+                    }
+                    
+                    // Determine status from date field - check for exact matches
                     let status = 'sold';
-                    const dateField = values[2].toLowerCase();
+                    const dateField = values[2].toLowerCase().trim();
+                    
                     if (dateField.includes('contract')) {
                         status = 'contract';
                     } else if (dateField.includes('listed')) {
                         status = 'listed';
-                    } else if (dateField.includes('process')) {
+                    } else if (dateField.includes('process') || dateField.includes('progress')) {
                         status = 'process';
+                    }
+                    
+                    // Format the date if it's an actual date (not a status)
+                    let displayDate = values[2].replace(/"/g, '');
+                    if (status === 'sold') {
+                        displayDate = formatDate(displayDate);
                     }
 
                     // Get photo URL (5th column if it exists)
@@ -542,9 +562,9 @@
 
                     data.push({
                         address: streetAddress,
-                        city: city.includes('NJ') ? city : city + ', NJ',
+                        city: city,
                         price: values[1].replace(/"/g, ''),
-                        date: values[2].replace(/"/g, ''),
+                        date: displayDate,
                         status: status,
                         comments: values[3].replace(/"/g, ''),
                         photoUrl: photoUrl
@@ -553,6 +573,50 @@
             }
 
             return data;
+        }
+
+        // Format date as "Month Day, Year"
+        function formatDate(dateStr) {
+            // Try to parse common date formats
+            const cleaned = dateStr.trim();
+            
+            // Check if it's already a status word (fallback)
+            if (cleaned.toLowerCase().includes('contract') || 
+                cleaned.toLowerCase().includes('listed') || 
+                cleaned.toLowerCase().includes('process') ||
+                cleaned.toLowerCase().includes('progress')) {
+                return cleaned;
+            }
+            
+            // Try to parse date formats like "Oct-19", "Oct 2019", "10/2019", etc.
+            const monthNames = {
+                'jan': 'January', 'feb': 'February', 'mar': 'March', 'apr': 'April',
+                'may': 'May', 'jun': 'June', 'jul': 'July', 'aug': 'August',
+                'sep': 'September', 'oct': 'October', 'nov': 'November', 'dec': 'December'
+            };
+            
+            // Format: "Oct-19" or "Oct 19"
+            const monthYearMatch = cleaned.match(/([a-z]{3})[- ]?(\d{2,4})/i);
+            if (monthYearMatch) {
+                const month = monthNames[monthYearMatch[1].toLowerCase()];
+                let year = monthYearMatch[2];
+                // Convert 2-digit year to 4-digit
+                if (year.length === 2) {
+                    year = '20' + year;
+                }
+                return `${month} ${year}`;
+            }
+            
+            // Format: "10/2019" or "10-2019"
+            const numMonthMatch = cleaned.match(/(\d{1,2})[\/\-](\d{4})/);
+            if (numMonthMatch) {
+                const monthNum = parseInt(numMonthMatch[1]);
+                const monthName = Object.values(monthNames)[monthNum - 1];
+                return `${monthName} ${numMonthMatch[2]}`;
+            }
+            
+            // If we can't parse it, return as-is
+            return cleaned;
         }
 
         // Convert Google Drive share links to direct image URLs
