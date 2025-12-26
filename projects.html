@@ -32,18 +32,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #0f172a;
-            --primary-slate: #1e293b;
-            --accent-blue: #3b82f6;
-            --accent-blue-light: #60a5fa;
-            --accent-blue-dark: #2563eb;
-            --text-dark: #0f172a;
-            --text-medium: #64748b;
-            --text-light: #94a3b8;
+            --primary-dark: #000000;
+            --primary-slate: #1a1a1a;
+            --accent-gray: #666666;
+            --accent-light: #999999;
+            --text-dark: #000000;
+            --text-medium: #4a4a4a;
+            --text-light: #6b7280;
             --bg-cream: #ffffff;
             --bg-white: #ffffff;
-            --bg-gray: #f8fafc;
-            --bg-light-blue: #f0f9ff;
+            --bg-gray: #f9fafb;
+            --bg-light: #fafaf9;
+            --border-light: #e5e7eb;
+            --border-gray: #d1d5db;
             --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06);
             --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
@@ -76,16 +77,18 @@
             transition: all 0.2s ease;
             padding: 0.75rem 1.25rem;
             background: var(--bg-white);
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-light);
             border-radius: 24px;
             font-size: 0.9rem;
             font-weight: 500;
+            box-shadow: var(--shadow-subtle);
         }
 
         .back-home:hover {
-            background: var(--bg-light-blue);
-            border-color: var(--accent-blue);
+            background: var(--bg-light);
+            border-color: var(--border-gray);
             transform: translateX(-2px);
+            box-shadow: var(--shadow-medium);
         }
 
         .back-arrow {
@@ -106,8 +109,8 @@
         /* Page Header */
         .page-header {
             padding: 8rem 3rem 3rem;
-            background: linear-gradient(135deg, var(--bg-light-blue) 0%, #e0f2fe 100%);
-            border-bottom: 1px solid #bfdbfe;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .page-header-content {
@@ -127,7 +130,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            color: var(--accent-blue);
+            color: var(--accent-gray);
             margin-bottom: 0.75rem;
             letter-spacing: 1.5px;
         }
@@ -171,7 +174,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid var(--border-light);
         }
 
         .property-row {
@@ -179,7 +182,7 @@
             grid-template-columns: 140px 2fr 1fr 1fr;
             gap: 2rem;
             padding: 1.5rem 3rem;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border-light);
             transition: all 0.2s ease;
             cursor: pointer;
             align-items: center;
@@ -230,23 +233,27 @@
         }
 
         .status-sold {
-            background: #d1fae5;
-            color: #065f46;
+            background: #f3f4f6;
+            color: #1f2937;
+            border: 1px solid #d1d5db;
         }
 
         .status-contract {
-            background: #dbeafe;
-            color: #1e40af;
+            background: #fafaf9;
+            color: #44403c;
+            border: 1px solid #d6d3d1;
         }
 
         .status-listed {
-            background: #fef3c7;
-            color: #92400e;
+            background: #f9fafb;
+            color: #374151;
+            border: 1px solid #e5e7eb;
         }
 
         .status-process {
-            background: #e0e7ff;
-            color: #4338ca;
+            background: #fafafa;
+            color: #525252;
+            border: 1px solid #d4d4d4;
         }
 
         .comments {
@@ -292,13 +299,21 @@
             color: var(--text-light);
             padding: 4rem 3rem;
             text-align: center;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-light);
             margin-top: 4rem;
         }
 
         footer p {
             font-size: 0.85rem;
             font-weight: 400;
+        }
+
+        footer a {
+            color: var(--text-dark);
+        }
+
+        footer a:hover {
+            color: var(--accent-gray);
         }
 
         /* Responsive Design */
@@ -444,7 +459,7 @@
     <footer>
         <p>&copy; <span id="currentYear"></span> OES Properties LLC. All rights reserved.</p>
         <p style="margin-top: 0.75rem; font-size: 0.8rem;">
-            Designed + built by <a href="https://kaanesendemir.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); text-decoration: none; font-weight: 500; transition: color 0.2s ease;">Kaan</a>
+            Designed + built by <a href="https://kaanesendemir.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s ease;">Kaan</a>
         </p>
     </footer>
 
@@ -693,7 +708,7 @@
                 
                 if (window.location.protocol === 'file:') {
                     errorMessage += `
-                        <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 1rem;">⚠️ Local File Testing</p>
+                        <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 1rem;">⚠️ Local File Testing</p>
                         <p style="color: #4a4a4a; margin-bottom: 1rem;">You're viewing this from a local file (file://)</p>
                         <p style="color: #7a7a7a; font-size: 0.9rem; line-height: 1.6;">
                             This is normal! The page will work perfectly once deployed to Cloudflare Pages.<br><br>
@@ -704,7 +719,7 @@
                     `;
                 } else {
                     errorMessage += `
-                        <p style="color: var(--accent-blue); font-weight: 600; margin-bottom: 1rem;">Unable to load properties</p>
+                        <p style="color: var(--text-dark); font-weight: 600; margin-bottom: 1rem;">Unable to load properties</p>
                         <p style="color: #7a7a7a; font-size: 0.9rem;">Error: ${error.message}</p>
                         <p style="color: #7a7a7a; font-size: 0.85rem; margin-top: 1rem;">Sheet URL: ${GOOGLE_SHEET_URL}</p>
                     `;
