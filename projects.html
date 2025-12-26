@@ -166,7 +166,6 @@
             padding: 3rem;
             max-width: 1400px;
             margin: 0 auto;
-            width: 100%;
         }
 
         .property-card {
@@ -176,8 +175,6 @@
             overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .property-card:hover {
@@ -188,19 +185,13 @@
 
         .property-photo {
             width: 100%;
-            aspect-ratio: 3 / 2;
+            height: 220px;
             background: var(--bg-gray);
             overflow: hidden;
             position: relative;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         .property-photo img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -214,9 +205,6 @@
         }
 
         .property-photo-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             display: flex;
@@ -229,8 +217,6 @@
 
         .property-info {
             padding: 1.5rem;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         .address {
@@ -411,7 +397,7 @@
             }
 
             .property-photo {
-                aspect-ratio: 3 / 2;
+                height: 200px;
             }
 
             .property-info {
