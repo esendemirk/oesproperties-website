@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://oesproperties.com/">
     <meta property="og:title" content="OES Properties LLC | New Jersey Real Estate Development">
     <meta property="og:description" content="Premium residential development specializing in new construction throughout New Jersey.">
+    <meta property="og:image" content="https://oesproperties.com/logo.png">
     <meta property="og:site_name" content="OES Properties LLC">
     <meta property="og:locale" content="en_US">
     
@@ -25,6 +26,7 @@
     <meta name="twitter:url" content="https://oesproperties.com/">
     <meta name="twitter:title" content="OES Properties LLC | New Jersey Real Estate Development">
     <meta name="twitter:description" content="Premium residential development specializing in new construction throughout New Jersey.">
+    <meta name="twitter:image" content="https://oesproperties.com/logo.png">
     
     <!-- Contact Information -->
     <meta name="contact" content="oesproperties@gmail.com">
@@ -112,13 +114,12 @@
             }
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
-            font-weight: 700;
-            color: var(--primary-dark);
-            line-height: 1.1;
+        .logo-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
             margin-bottom: 1.5rem;
-            letter-spacing: -1.5px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
         }
 
         .tagline {
@@ -198,9 +199,9 @@
                 height: 100vh;
             }
 
-            h1 {
-                font-size: clamp(1.75rem, 8vw, 2.5rem);
-                margin-bottom: 0.75rem;
+            .logo-image {
+                max-width: 320px;
+                margin-bottom: 1rem;
             }
 
             .tagline {
@@ -242,8 +243,8 @@
         }
 
         @media (max-width: 380px) {
-            h1 {
-                font-size: 1.5rem;
+            .logo-image {
+                max-width: 280px;
             }
 
             .tagline {
@@ -272,7 +273,7 @@
 <body>
     <div class="landing">
         <div class="content">
-            <h1>OES Properties LLC</h1>
+            <img src="logo.png" alt="OES Properties LLC" class="logo-image">
             <p class="tagline">New Jersey Real Estate Development</p>
             <div class="divider"></div>
             <p class="description">Premium residential development specializing in new construction throughout New Jersey.</p>
@@ -297,6 +298,7 @@
       "description": "Premium residential development specializing in new construction throughout New Jersey",
       "url": "https://oesproperties.com",
       "logo": "https://oesproperties.com/logo.png",
+      "image": "https://oesproperties.com/logo.png",
       "telephone": "+1-201-970-3846",
       "email": "oesproperties@gmail.com",
       "address": {
